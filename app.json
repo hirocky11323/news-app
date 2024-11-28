@@ -19,13 +19,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.hiroki323.newsapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
-      "newsApiKey": "4daaecf82fa94744affa3dc638aa2b18"
+      "newsApiKey": "4daaecf82fa94744affa3dc638aa2b18",
+      "eas": {
+        "projectId": "ca56d991-bf42-47c8-ab3c-281956c3b3bf"
+      }
     }
   }
 }
