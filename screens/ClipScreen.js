@@ -1,31 +1,15 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import { StyleSheet, SafeAreaView, FlatList } from "react-native";
+import { useSelector } from "react-redux";
 import { ListItem } from "../components/ListItem";
-import axios from "axios";
-import Constants from "expo-constants";
 
-const URL = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${Constants.expoConfig.extra.newsApiKey}`;
-
-export const HomeScreen = ({ navigation }) => {
-  const [articles, setArticles] = useState([]);
-
-  const fetchArticles = async () => {
-    try {
-      const response = await axios.get(URL);
-      setArticles(response.data.articles);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchArticles();
-  }, []);
+export const ClipScreen = ({ navigation }) => {
+  const clips = useSelector((state) => state.user.clips);
 
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={articles}
+        data={clips}
         renderItem={({ item }) => (
           <ListItem
             imageURL={item.urlToImage}
@@ -47,6 +31,6 @@ export const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eee",
+    backgroundColor: "#fff",
   },
 });
